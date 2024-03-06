@@ -7,13 +7,13 @@ import AddTransaction from './components/AddTransaction.vue'
 
 import { ref, computed, onMounted } from 'vue';
 
-const transactions = ref([])
+const transactions = ref([]);
 
 onMounted(() => {
-  const saveTransactions = JSON.parse(localStorage.getItem('transactions'));
+  const savedTransactions = JSON.parse(localStorage.getItem('transactions'));
 
-  if (saveTransactions) {
-    transactions.value = saveTransactions;
+  if (savedTransactions) {
+    transactions.value = savedTransactions;
   }
 })
 
@@ -65,7 +65,7 @@ function handleTransactionDeleted(id) {
 // Saving to localstorage
 
 const saveTransactionsToLocalStorage = () => {
-  localStorage.setItem('transaction', JSON.stringify(transactions.value))
+  localStorage.setItem('transactions', JSON.stringify(transactions.value))
 }
 
 </script>
